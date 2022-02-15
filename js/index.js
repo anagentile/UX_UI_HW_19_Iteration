@@ -8,10 +8,15 @@ $("#navigation").on("click", function(){
 
 // Fade Hover
 
-$( "#navigation p").hover(function() {
+$( "#navigation a").hover(function() {
     $( this ).fadeOut( slow );
     $( this ).fadeIn(500);
   });
+
+  $( "#navigation a").on ("click",(function() {
+    $( this ).fadeOut( slow );
+    $( this ).fadeIn(slow);
+  }));
 
 // Scroll
 $(document).ready(function(){
@@ -90,18 +95,7 @@ $("document").ready(function(){
 });
 
 
-// $("document").ready(function(){ 
-//     $("#NaaImage img").mouseenter(function(){       
-//         $(this).attr('src','images/naahover.png');  
-//         $(this).animate({ opacity: "1.0"}, slow);    
-//     });     
-//     $("#NaaImage img").mouseleave(function(){       
-//         $(this).attr('src','images/naa.png'); 
-//         $(this).animate({ opacity: "1.0"}, slow);         
-//     }); 
-   
-// });
-
+// Work Grid Animation 
 $(document).ready(function() {
     $(window).on("scroll", function() {
       console.log($(this).scrollTop())
@@ -115,20 +109,6 @@ $(document).ready(function() {
       }
     })
   })
-
-//   $(document).ready(function() {
-//     $(window).on("scroll", function() {
-//       console.log($(this).scrollTop())
-//       if($(this).scrollTop() >= 600){
-//         // set to new image
-//         $("#nextImage img").attr('src','images/nexthover.png');
-//         $( this ).animate(slow);
-//       } else {
-//         //back to default
-//         $("#nextImage img").attr('src','images/next tv.png');
-//       }
-//     })
-//   })
 
   $("document").ready(function(){ 
     $("#nextImage img").mouseenter(function(){       
@@ -155,13 +135,32 @@ $("document").ready(function(){
    
 });
 
+//Active on Click
+
 $('#navigation p').on("click", function(){
     $(this).toggleClass("active");
 });
   
+// Toggle Mobile
 
 $(".icons").on("click", function(){
     $("#navigation a").slideToggle(); 
 })
 
+//scroll smoth
+$(document).ready(function(){
+
+  $("a").on('click', function(event) {
+
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    } 
+  });
+});
 
