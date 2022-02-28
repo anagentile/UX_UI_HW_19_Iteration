@@ -785,6 +785,12 @@ h1{
         align-content: center;
         justify-content: space-evenly;
     } 
+
+    .effect img{
+        width: 100%;
+        object-fit: cover;
+    }
+
     /* Footer */     
 
     #AG{
